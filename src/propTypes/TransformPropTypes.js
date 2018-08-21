@@ -1,18 +1,13 @@
 /**
  * https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/TransformPropTypes.js
  */
-import React from 'react';
-
-const { PropTypes } = React;
+import PropTypes from 'prop-types';
 
 const arrayOfNumberPropType = PropTypes.arrayOf(PropTypes.number);
 
 const transformMatrixPropType = function (props, propName, componentName, ...rest) {
   if (props.transform && props.transformMatrix) {
-    return new Error(
-      'transformMatrix and transform styles cannot be used on the same ' +
-      'component'
-    );
+    return new Error('transformMatrix and transform styles cannot be used on the same component');
   }
   return arrayOfNumberPropType(props, propName, componentName, ...rest);
 };
@@ -31,10 +26,10 @@ const transformPropTypes = {
       PropTypes.shape({ translateX: PropTypes.number }),
       PropTypes.shape({ translateY: PropTypes.number }),
       PropTypes.shape({ skewX: PropTypes.string }),
-      PropTypes.shape({ skewY: PropTypes.string }),
+      PropTypes.shape({ skewY: PropTypes.string })
     ])
   ),
-  transformMatrix: transformMatrixPropType,
+  transformMatrix: transformMatrixPropType
 };
 
 module.exports = transformPropTypes;

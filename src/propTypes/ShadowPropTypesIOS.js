@@ -1,7 +1,6 @@
-import React from 'react';
 import ColorPropType from './ColorPropType';
 
-const { PropTypes } = React;
+import PropTypes from 'prop-types';
 
 const ShadowPropTypesIOS = {
   /**
@@ -15,7 +14,7 @@ const ShadowPropTypesIOS = {
    */
   shadowOffset: PropTypes.shape({
     width: PropTypes.number,
-    height: PropTypes.number,
+    height: PropTypes.number
   }),
   /**
    * Sets the drop shadow opacity (multiplied by the color's alpha component)
@@ -26,7 +25,7 @@ const ShadowPropTypesIOS = {
    * Sets the drop shadow blur radius
    * @platform ios
    */
-  shadowRadius: PropTypes.number,
+  shadowRadius: PropTypes.number
 };
 
 module.exports = ShadowPropTypesIOS;

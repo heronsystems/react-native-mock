@@ -1,3 +1,4 @@
+import React from 'react';
 import ScrollResponder from '../mixins/ScrollResponder';
 import TimerMixin from 'react-timer-mixin';
 import ScrollView from './ScrollView';

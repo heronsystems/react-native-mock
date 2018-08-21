@@ -1,4 +1,5 @@
-var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _ScrollResponder=require('../mixins/ScrollResponder');var _ScrollResponder2=_interopRequireDefault(_ScrollResponder);
+var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _react=require('react');var _react2=_interopRequireDefault(_react);
+var _ScrollResponder=require('../mixins/ScrollResponder');var _ScrollResponder2=_interopRequireDefault(_ScrollResponder);
 var _reactTimerMixin=require('react-timer-mixin');var _reactTimerMixin2=_interopRequireDefault(_reactTimerMixin);
 var _ScrollView=require('./ScrollView');var _ScrollView2=_interopRequireDefault(_ScrollView);
 var _ListViewDataSource=require('../api/ListViewDataSource');var _ListViewDataSource2=_interopRequireDefault(_ListViewDataSource);
@@ -78,12 +79,12 @@ renderSectionHeader:_propTypes2['default'].func,
      * A function that returns the scrollable component in which the list rows
      * are rendered. Defaults to returning a ScrollView with the given props.
      */
-renderScrollComponent:React.PropTypes.func.isRequired,
+renderScrollComponent:_react2['default'].PropTypes.func.isRequired,
 /**
      * How early to start rendering rows before they come on screen, in
      * pixels.
      */
-scrollRenderAheadDistance:React.PropTypes.number,
+scrollRenderAheadDistance:_react2['default'].PropTypes.number,
 /**
      * (visibleRows, changedRows) => void
      *
@@ -93,13 +94,13 @@ scrollRenderAheadDistance:React.PropTypes.number,
      * that have changed their visibility, with true indicating visible, and
      * false indicating the view has moved out of view.
      */
-onChangeVisibleRows:React.PropTypes.func,
+onChangeVisibleRows:_react2['default'].PropTypes.func,
 /**
      * A performance optimization for improving scroll perf of
      * large lists, used in conjunction with overflow: 'hidden' on the row
      * containers.  This is enabled by default.
      */
-removeClippedSubviews:React.PropTypes.bool,
+removeClippedSubviews:_react2['default'].PropTypes.bool,
 /**
      * An array of child indices determining which children get docked to the
      * top of the screen when scrolling. For example, passing
@@ -152,7 +153,7 @@ this.refs[SCROLLVIEW_REF].setNativeProps(props);
 
 getDefaultProps:function(){function getDefaultProps(){
 return{
-renderScrollComponent:function(){function renderScrollComponent(props){return React.createElement(_ScrollView2['default'],props);}return renderScrollComponent;}()};
+renderScrollComponent:function(){function renderScrollComponent(props){return _react2['default'].createElement(_ScrollView2['default'],props);}return renderScrollComponent;}()};
 
 }return getDefaultProps;}(),
 

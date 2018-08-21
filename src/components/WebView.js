@@ -3,6 +3,7 @@ import React from 'react';
 import View from './View';
 import ScrollView from './ScrollView';
 import WebViewManager from '../NativeModules/WebViewManager';
+import createReactClass from 'create-react-class';
 
 import PropTypes from 'prop-types';
 
@@ -14,12 +15,12 @@ const NavigationType = {
   backforward: WebViewManager.NavigationType.BackForward,
   reload: WebViewManager.NavigationType.Reload,
   formresubmit: WebViewManager.NavigationType.FormResubmitted,
-  other: WebViewManager.NavigationType.Other,
+  other: WebViewManager.NavigationType.Other
 };
 
 const JSNavigationScheme = WebViewManager.JSNavigationScheme;
 
-const WebView = React.createClass({
+const WebView = createReactClass({
   propTypes: {
     ...View.propTypes,
     url: PropTypes.string,
@@ -112,12 +113,12 @@ const WebView = React.createClass({
      * document must also include the webkit-playsinline attribute."
      * @platform ios
      */
-    allowsInlineMediaPlayback: PropTypes.bool,
+    allowsInlineMediaPlayback: PropTypes.bool
   },
 
   statics: {
     JSNavigationScheme,
-    NavigationType,
+    NavigationType
   },
 
   getWebViewHandle() {
@@ -139,7 +140,7 @@ const WebView = React.createClass({
 
   render() {
     return null;
-  },
+  }
 });
 
 module.exports = WebView;

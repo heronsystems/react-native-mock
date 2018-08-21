@@ -4,10 +4,11 @@ import TimerMixin from 'react-timer-mixin';
 import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 import View from './View';
 import Text from './Text';
+import createReactClass from 'create-react-class';
 
 import PropTypes from 'prop-types';
 
-const TextInput = React.createClass({
+const TextInput = createReactClass({
   propTypes: {
     ...View.propTypes,
     /**
@@ -18,12 +19,7 @@ const TextInput = React.createClass({
      * - sentences: first letter of each sentence (default)
      * - none: don't auto capitalize anything
      */
-    autoCapitalize: PropTypes.oneOf([
-      'none',
-      'sentences',
-      'words',
-      'characters',
-    ]),
+    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
     /**
      * If false, disables auto-correct. The default value is true.
      */
@@ -59,17 +55,13 @@ const TextInput = React.createClass({
       'name-phone-pad',
       'decimal-pad',
       'twitter',
-      'web-search',
+      'web-search'
     ]),
     /**
      * Determines the color of the keyboard.
      * @platform ios
      */
-    keyboardAppearance: PropTypes.oneOf([
-      'default',
-      'light',
-      'dark',
-    ]),
+    keyboardAppearance: PropTypes.oneOf(['default', 'light', 'dark']),
     /**
      * Determines how the return key should look.
      * @platform ios
@@ -85,7 +77,7 @@ const TextInput = React.createClass({
       'send',
       'yahoo',
       'done',
-      'emergency-call',
+      'emergency-call'
     ]),
     /**
      * Limits the maximum number of characters that can be entered. Use this
@@ -190,12 +182,7 @@ const TextInput = React.createClass({
      * When the clear button should appear on the right side of the text view
      * @platform ios
      */
-    clearButtonMode: PropTypes.oneOf([
-      'never',
-      'while-editing',
-      'unless-editing',
-      'always',
-    ]),
+    clearButtonMode: PropTypes.oneOf(['never', 'while-editing', 'unless-editing', 'always']),
     /**
      * If true, clears the text field automatically when editing begins
      * @platform ios
@@ -227,23 +214,20 @@ const TextInput = React.createClass({
      * The color of the textInput underline.
      * @platform android
      */
-    underlineColorAndroid: PropTypes.string,
+    underlineColorAndroid: PropTypes.string
   },
   mixins: [NativeMethodsMixin, TimerMixin],
   statics: {
-    State: TextInputState,
+    State: TextInputState
   },
   isFocused() {
     // TODO(lmr): React.findNodeHandle
-    return TextInputState.currentlyFocusedField() ===
-      React.findNodeHandle(this.refs.input);
+    return TextInputState.currentlyFocusedField() === React.findNodeHandle(this.refs.input);
   },
-  clear() {
-
-  },
+  clear() {},
   render() {
     return null;
-  },
+  }
 });
 
 module.exports = TextInput;

@@ -1,14 +1,12 @@
-import React from 'react';
 import ScrollResponder from '../mixins/ScrollResponder';
 import TimerMixin from 'react-timer-mixin';
 import ScrollView from './ScrollView';
 import ListViewDataSource from '../api/ListViewDataSource';
-
+import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 const SCROLLVIEW_REF = 'listviewscroll';
 
-
-const ListView = React.createClass({
+const ListView = createReactClass({
   propTypes: {
     ...ScrollView.propTypes,
 
@@ -110,24 +108,25 @@ const ListView = React.createClass({
      * with `horizontal={true}`.
      * @platform ios
      */
-    stickyHeaderIndices: PropTypes.arrayOf(PropTypes.number),
+    stickyHeaderIndices: PropTypes.arrayOf(PropTypes.number)
   },
   mixins: [ScrollResponder.Mixin, TimerMixin],
 
   statics: {
-    DataSource: ListViewDataSource,
+    DataSource: ListViewDataSource
   },
 
   /**
    * Exports some data, e.g. for perf investigations or analytics.
    */
-  getMetrics() {  // eslint-disable-line react/sort-comp
+  getMetrics() {
+    // eslint-disable-line react/sort-comp
     // It's fixed, but the linter doesnt want to recognise it...
     return {
       contentLength: this.scrollProperties.contentLength,
       totalRows: this.props.dataSource.getRowCount(),
       renderedRows: this.state.curRenderedRowsCount,
-      visibleRows: Object.keys(this._visibleRows).length,
+      visibleRows: Object.keys(this._visibleRows).length
     };
   },
 
@@ -140,9 +139,11 @@ const ListView = React.createClass({
    * such as scrollTo.
    */
   getScrollResponder() {
-    return this.refs[SCROLLVIEW_REF] &&
+    return (
+      this.refs[SCROLLVIEW_REF] &&
       this.refs[SCROLLVIEW_REF].getScrollResponder &&
-      this.refs[SCROLLVIEW_REF].getScrollResponder();
+      this.refs[SCROLLVIEW_REF].getScrollResponder()
+    );
   },
 
   setNativeProps(props) {
@@ -151,7 +152,7 @@ const ListView = React.createClass({
 
   getDefaultProps() {
     return {
-      renderScrollComponent: (props) => <ScrollView {...props} />
+      renderScrollComponent: props => <ScrollView {...props} />
     };
   },
 
@@ -161,7 +162,7 @@ const ListView = React.createClass({
 
   render() {
     return null;
-  },
+  }
 });
 
 module.exports = ListView;

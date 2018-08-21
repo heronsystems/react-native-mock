@@ -4,14 +4,15 @@
 import React from 'react';
 import EdgeInsetsPropType from '../propTypes/EdgeInsetsPropType';
 import View from './View';
+import createReactClass from 'create-react-class';
 
-const TouchableWithoutFeedback = React.createClass({
+const TouchableWithoutFeedback = createReactClass({
   propTypes: {
     accessible: React.PropTypes.bool,
     accessibilityComponentType: React.PropTypes.oneOf(View.AccessibilityComponentType),
     accessibilityTraits: React.PropTypes.oneOfType([
       React.PropTypes.oneOf(View.AccessibilityTraits),
-      React.PropTypes.arrayOf(React.PropTypes.oneOf(View.AccessibilityTraits)),
+      React.PropTypes.arrayOf(React.PropTypes.oneOf(View.AccessibilityTraits))
     ]),
     /**
      * If true, disable all interactions for this component.
@@ -61,11 +62,11 @@ const TouchableWithoutFeedback = React.createClass({
      * of sibling views always takes precedence if a touch hits two overlapping
      * views.
      */
-    hitSlop: EdgeInsetsPropType,
+    hitSlop: EdgeInsetsPropType
   },
   render() {
     return null;
-  },
+  }
 });
 
 module.exports = TouchableWithoutFeedback;

@@ -5,10 +5,11 @@ import React from 'react';
 import styleSheetPropType from '../propTypes/StyleSheetPropType';
 import TextStylePropTypes from '../propTypes/TextStylePropTypes';
 import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
+import createReactClass from 'create-react-class';
 
 const stylePropType = styleSheetPropType(TextStylePropTypes);
 
-const Text = React.createClass({
+const Text = createReactClass({
   propTypes: {
     /**
      * Used to truncate the text with an ellipsis after computing the text
@@ -41,13 +42,13 @@ const Text = React.createClass({
      * Specifies should fonts scale to respect Text Size accessibility setting on iOS.
      * @platform ios
      */
-    allowFontScaling: React.PropTypes.bool,
+    allowFontScaling: React.PropTypes.bool
   },
   mixins: [NativeMethodsMixin],
 
   render() {
     return null;
-  },
+  }
 });
 
 module.exports = Text;

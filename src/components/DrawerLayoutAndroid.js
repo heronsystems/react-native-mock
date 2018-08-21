@@ -1,17 +1,16 @@
 /**
  *https://github.com/facebook/react-native/blob/master/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid.android.js
  */
-import React from 'react';
 import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 import View from './View';
 import UIManager from '../NativeModules/UIManager';
 import ColorPropType from '../propTypes/ColorPropType';
+import createReactClass from 'create-react-class';
 
-const ReactPropTypes = React.PropTypes;
+import ReactPropTypes from 'prop-types';
 const DrawerConsts = UIManager.AndroidDrawerLayout.Constants;
 
-const DrawerLayoutAndroid = React.createClass({
-
+const DrawerLayoutAndroid = createReactClass({
   propTypes: {
     ...View.propTypes,
     /**
@@ -21,7 +20,7 @@ const DrawerLayoutAndroid = React.createClass({
      */
     keyboardDismissMode: ReactPropTypes.oneOf([
       'none', // default
-      'on-drag',
+      'on-drag'
     ]),
     /**
      * Specifies the background color of the drawer. The default value is white.
@@ -38,10 +37,7 @@ const DrawerLayoutAndroid = React.createClass({
     /**
      * Specifies the side of the screen from which the drawer will slide in.
      */
-    drawerPosition: ReactPropTypes.oneOf([
-      DrawerConsts.DrawerPosition.Left,
-      DrawerConsts.DrawerPosition.Right
-    ]),
+    drawerPosition: ReactPropTypes.oneOf([DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right]),
     /**
      * Specifies the width of the drawer, more precisely the width of the view that be pulled in
      * from the edge of the window.
@@ -54,11 +50,7 @@ const DrawerLayoutAndroid = React.createClass({
      * - locked-open, meaning that the drawer will stay opened and not respond to gestures.
      * The drawer may still be opened and closed programmatically (`openDrawer`/`closeDrawer`).
      */
-    drawerLockMode: ReactPropTypes.oneOf([
-      'unlocked',
-      'locked-closed',
-      'locked-open'
-    ]),
+    drawerLockMode: ReactPropTypes.oneOf(['unlocked', 'locked-closed', 'locked-open']),
     /**
      * Function called whenever there is an interaction with the navigation view.
      */
@@ -89,7 +81,7 @@ const DrawerLayoutAndroid = React.createClass({
      * status bar to allow it to open over the status bar. It will only have an
      * effect on API 21+.
      */
-    statusBarBackgroundColor: ColorPropType,
+    statusBarBackgroundColor: ColorPropType
   },
 
   mixins: [NativeMethodsMixin],
@@ -109,7 +101,6 @@ const DrawerLayoutAndroid = React.createClass({
   render() {
     return null;
   }
-
 });
 
 module.exports = DrawerLayoutAndroid;

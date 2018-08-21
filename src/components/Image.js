@@ -1,16 +1,16 @@
 /**
  * https://github.com/facebook/react-native/blob/master/Libraries/Image/Image.ios.js
  */
-import React from 'react';
 import styleSheetPropType from '../propTypes/StyleSheetPropType';
 import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 import EdgeInsetsPropType from '../propTypes/EdgeInsetsPropType';
 import ImageStylePropTypes from '../propTypes/ImageStylePropTypes';
 import ImageResizeMode from '../propTypes/ImageResizeMode';
+import createReactClass from 'create-react-class';
 
 import PropTypes from 'prop-types';
 
-const Image = React.createClass({
+const Image = createReactClass({
   propTypes: {
     style: styleSheetPropType(ImageStylePropTypes),
     /**
@@ -20,10 +20,10 @@ const Image = React.createClass({
      */
     source: PropTypes.oneOfType([
       PropTypes.shape({
-        uri: PropTypes.string,
+        uri: PropTypes.string
       }),
       // Opaque type returned by require('./image.jpg')
-      PropTypes.number,
+      PropTypes.number
     ]),
     /**
      * A static image to display while loading the image source.
@@ -31,10 +31,10 @@ const Image = React.createClass({
      */
     defaultSource: PropTypes.oneOfType([
       PropTypes.shape({
-        uri: PropTypes.string,
+        uri: PropTypes.string
       }),
       // Opaque type returned by require('./image.jpg')
-      PropTypes.number,
+      PropTypes.number
     ]),
     /**
      * When true, indicates the image is an accessibility element.
@@ -107,21 +107,17 @@ const Image = React.createClass({
     /**
      * Invoked when load either succeeds or fails
      */
-    onLoadEnd: PropTypes.func,
+    onLoadEnd: PropTypes.func
   },
   mixins: [NativeMethodsMixin],
   statics: {
     resizeMode: ImageResizeMode,
-    getSize(uri, success, failure) {
-
-    },
-    prefetch(uri) {
-
-    }
+    getSize(uri, success, failure) {},
+    prefetch(uri) {}
   },
   render() {
     return null;
-  },
+  }
 });
 
 module.exports = Image;

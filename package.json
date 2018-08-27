@@ -51,12 +51,8 @@
     "keymirror": "^0.1.1",
     "prop-types": "^15.6.2",
     "raf": "^3.2.0",
-    "react-addons-create-fragment": "^15.4.0",
-    "react-addons-perf": "^15.4.0",
-    "react-addons-pure-render-mixin": "^15.4.0",
-    "react-addons-test-utils": "^15.4.0",
-    "react-addons-update": "^15.4.0",
     "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
     "react-timer-mixin": "^0.13.3",
     "warning": "^2.1.0"
   },
